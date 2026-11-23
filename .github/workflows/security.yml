@@ -1,11 +1,14 @@
 name: security
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with: { fetch-depth: 0 }   # gitleaks needs history
 
       # GATE: secret scan — exit non-zero on a finding, so the build fails
