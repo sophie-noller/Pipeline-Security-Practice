@@ -5,7 +5,7 @@ jobs:
   scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@<pin-a-sha-in-part-2>
+      - uses: actions/checkout@v4
         with: { fetch-depth: 0 }   # gitleaks needs history
 
       # GATE: secret scan — exit non-zero on a finding, so the build fails
